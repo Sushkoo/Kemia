@@ -12,33 +12,25 @@ namespace doga
         static void Main(string[] args)
         {
             //1.feladat
-            StreamWriter cw = new StreamWriter("felfedezesek.csv");
 
-            List<ListaElem> lista = new List<ListaElem>();
-            
+            //List<ListaElem> lista = new List<ListaElem>();
+           
 
-            bool EndOfStream = true;
-            while (!EndOfStream)
-            {
-                lista.Add();
-            }
+            List<string> sorok = File.ReadAllLines("felfedezesek.csv").Skip(0).ToList();
 
             //3.feladat
-            int kemiaiElemek = lista.Count();
+            int kemiaiElemek = sorok.Count();
             Console.WriteLine($"3.feladat: Elemek száma:{kemiaiElemek}");
 
             //4.feladat
-            int okoriFelfedezesek = lista.Where(x=> x="Ókor").Count();
+            int okoriFelfedezesek = sorok.Where(x=> x="Ókor").Count();
             Console.WriteLine($"4.feladat: Felfedezések száma az ókorban: {okoriFelfedezesek}");
 
             //5.feladat
             Console.WriteLine("Kérek egy vegyjelet: ");
-            foreach (var i in lista)
-            {
-
-            }
            string vegyjel=Console.ReadLine();
-           string keresettElem = lista.ForEach(x => x = vegyjel);
+           
+           string keresettElem = sorok.ForEach(x => x = vegyjel);
 
 
             //6.feladat
